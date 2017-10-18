@@ -21,8 +21,6 @@ public class LoginController {
 	public LoginUserForm setUpLoginUserForm(){
 		
 		LoginUserForm loginUserForm = new LoginUserForm();
-		loginUserForm.setEmail("shukonda@gmail.com");
-		loginUserForm.setPassword("shuhei1129");
 		
 		return loginUserForm;
 	}
