@@ -16,11 +16,6 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script>var ctx = "${pageContext.request.contextPath}"</script>
-<script>
-$(function () {
-	  $('[data-toggle="popover"]').popover();
-	})
-</script>
 <base href="/">
 </head>
 <%@ include file="navbar.jsp"%>

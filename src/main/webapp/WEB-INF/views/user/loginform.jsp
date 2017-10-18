@@ -2,16 +2,11 @@
 <%@ include file="../common/header.jsp"%>
 <body>
 <!-- login form -->
-<br>
-<br>
-<br>
-<br>
 <div class="row">
-	<div class="col-xs-offset-2 col-xs-8">
+	<div class="col-md-offset-2 col-md-8 col-xs-offset-1 col-xs-10">
 		<div class="well">
 			<form:form modelAttribute="loginUserForm" action="${pageContext.request.contextPath}/login">
-				<fieldset>
-					
+				<fieldset>	
 					<legend>
 						ログイン
 					</legend>
