@@ -81,7 +81,7 @@ angular.module('myapp', [])
                         url: url
                     }).then(function(data) {
                         $scope.trustSrc = function(src) {
-                            return $sce.trustAsResourceUrl('http://www.youtube.com/embed/' + src);
+                            return $sce.trustAsResourceUrl('https://www.youtube.com/embed/' + src);
                         }
                         $scope.results.push({
                             video: value, //動画情報

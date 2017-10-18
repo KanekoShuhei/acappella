@@ -48,7 +48,7 @@ angular.module('myapp', []).controller('videoDetailCtrl', ['$scope', '$http', '$
                 url: url
             }).then(function(data) {
                 $scope.trustSrc = function(src) {
-                    return $sce.trustAsResourceUrl('http://www.youtube.com/embed/' + src);
+                    return $sce.trustAsResourceUrl('https://www.youtube.com/embed/' + src);
                 }
                 $scope.result = {
                     video: video.data, //動画情報
