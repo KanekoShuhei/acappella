@@ -9,7 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Acappella</title>
-<link rel="stylesheet" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+<!-- <link rel="stylesheet" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css"> -->
 <link href="${pageContext.request.contextPath}/css/bootstrap.css" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
