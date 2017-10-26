@@ -18,11 +18,12 @@ myapp.controller('mainCtrl', ['$scope', '$http', '$sce', function($scope, $http,
                     '<a href="' + ctx + '/video/addlikes?videoId=' + value.id + '"' +
         			' class="btn btn-default btn-xs" role="button">★</a>');
             var hasLiked = false;
+            
             $http({
               method: 'GET',
               url: '/ac/video/get-one-json-by-login-user'
-            }).then(function(loginUserLikeVideos) {
-
+            }).success(function(loginUserLikeVideos) {
+            	
               var arr = loginUserLikeVideos.data;
               arr.filter(function(item, index) {
                 if (item.id == value.id) {
