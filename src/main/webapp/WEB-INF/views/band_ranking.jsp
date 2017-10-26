@@ -9,19 +9,20 @@
 				<table class="table table-responsive table-bordered" style="background-color:#FFFFFF;">
 					<thead class="thead-inverse">
 						<tr>
-							<th class="text-center">Rank</th>
-							<th class="text-center">Band</th>
-							<th class="text-center">Point</th>
-							<th class="text-center">Twitter</th>
+							<th class="col-xs-1 text-center">Rank</th>
+							<th class="col-xs-8 text-center">Band</th>
+							<th class="col-xs-1 text-center">Point</th>
+							<th class="col-xs-2 text-center">Twitter</th>
 						</tr>
 					</thead>
 					<tbody>
-					<tr ng-repeat="band in bands | orderBy: '-popularity'">
-						<td class="text-center">{{$index + 1}}</td>
-						<td class="text-center lead"><a href="${pageContext.request.contextPath}/band/detail?bandId={{band.id}}" style="text-decoration: none;">
+					<tr ng-repeat="band in bands | orderBy: '-popularity'" class="text-center">
+						<td>{{$index + 1}}</td>
+						<td class="lead"><a href="${pageContext.request.contextPath}/band/detail?bandId={{band.id}}" style="text-decoration: none;">
 						{{band.name}}</a></td>
-						<td class="text-center">{{band.popularity}}</td>
-						<td class="text-center"><a href="https://twitter.com/{{band.twitter}}" style="text-decoration: none;">@{{band.twitter}}</a></td>
+						<td>{{band.popularity}}</td>
+						<td><a href="https://twitter.com/{{band.twitter}}"> 
+            			<img src="${pageContext.request.contextPath}/img/if_43-twitter_104461.png" height="20%"></a></td>
 					</tr>
 					</tbody>
 				</table>

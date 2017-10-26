@@ -10,7 +10,7 @@
 	</div>
 	<div class="panel-body text-center">
 		<a href="${pageContext.request.contextPath}/video/detail?youtubeId={{result.data.id}}">
-			<img ng-src="{{result.data.snippet.thumbnails.medium.url}}" class="img-rounded">
+			<img ng-src="{{result.data.snippet.thumbnails.medium.url}}" class="img-rounded img-responsive center-block">
 		</a>
 	</div>
 	<div class="panel-footer text-center">

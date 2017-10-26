@@ -2,3 +2,7 @@
 .likeVideo{
 	display:none;
 }
+
+body{
+	line-height:initial;
+}
