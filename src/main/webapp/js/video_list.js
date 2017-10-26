@@ -14,7 +14,9 @@ myapp.controller('mainCtrl', ['$scope', '$http', '$sce', function($scope, $http,
 
         angular.forEach(videos.data, function(value, index, array) {
 
-        	var like;
+        	var like = $sce.trustAsHtml(
+                    '<a href="' + ctx + '/video/addlikes?videoId=' + value.id + '"' +
+        			' class="btn btn-default btn-xs" role="button">★</a>');
             var hasLiked = false;
             $http({
               method: 'GET',
@@ -31,10 +33,6 @@ myapp.controller('mainCtrl', ['$scope', '$http', '$sce', function($scope, $http,
             	  like = $sce.trustAsHtml(
                   '<a href="' + ctx + '/video/delete-like-videos?videoId=' + value.id + '"' +
                   ' class="btn btn-default btn-xs" role="button" style="color:yellow;">★</a>');
-              } else {
-            	  like = $sce.trustAsHtml(
-                  '<a href="' + ctx + '/video/addlikes?videoId=' + value.id + '"' +
-                  ' class="btn btn-default btn-xs" role="button">★</a>');
               }
             });
         	
