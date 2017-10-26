@@ -38,7 +38,7 @@ myapp.controller('mainCtrl', ['$scope', '$http', '$sce', function($scope, $http,
               }
             });
         	
-            var url = 'https://www.googleapis.com/youtube/v3/videos?' + ['id=' +
+            var youtubeUrl = 'https://www.googleapis.com/youtube/v3/videos?' + ['id=' +
                 encodeURIComponent(value.youtubeId),
                 'key=AIzaSyCi73Clf3nXaxoocsBAp3d9ewlgGGjXuW4',
                 'part=snippet,statistics',
@@ -46,7 +46,7 @@ myapp.controller('mainCtrl', ['$scope', '$http', '$sce', function($scope, $http,
 
             $http({
                 method: 'GET',
-                url: url
+                url: youtubeUrl
             }).then(function(data) {
                 $scope.trustSrc = function(src) {
                     return $sce.trustAsResourceUrl('https://www.youtube.com/embed/' + src);
