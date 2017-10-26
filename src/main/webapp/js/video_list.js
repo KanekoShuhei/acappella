@@ -21,9 +21,9 @@ myapp.controller('mainCtrl', ['$scope', '$http', '$sce', function($scope, $http,
             $http({
               method: 'GET',
               url: '/ac/video/get-one-json-by-login-user'
-            }).then(function(videos) {
+            }).then(function(loginUserLikeVideos) {
 
-              var arr = videos.data;
+              var arr = loginUserLikeVideos.data;
               arr.filter(function(item, index) {
                 if (item.id == value.id) {
                   hasLiked = true;
