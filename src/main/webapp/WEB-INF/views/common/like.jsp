@@ -12,10 +12,8 @@
 				</div>
 				<div class="modal-body text-center">いいねを押すにはログインしてください</div>
 				<div class="modal-footer">
+					<a class="btn btn-primary" href="${pageContext.request.contextPath}/loginform">ログイン</a>
 					<button type="button" class="btn btn-default" data-dismiss="modal">キャンセル</button>
-					<a class="btn btn-danger"
-						href="${pageContext.request.contextPath}/loginform">
-						ログイン</a>
 				</div>
 			</div>
 		</div>

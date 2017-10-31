@@ -5,10 +5,17 @@ myapp.controller('mainCtrl', [
   '$sce',
   function($scope, $http, $sce) {
 
+	// 動画情報をデータベースから取得
     $http({method: 'GET', url: '/ac/video/get-all-json'}).then(function(videos) {
-      showVideos(videos);
+        // Youtube情報といいねの有無を調べ、加えて、resultにpush
+    	showVideos(videos);
     });
-
+    
+    var arr = [];
+    $http({method: 'GET', url: '/ac/video/get-one-json-by-login-user'}).then(function(loginUserLikeVideos) {
+    	   arr = loginUserLikeVideos.data;
+    });
+    
     function showVideos(videos) {
 
       $scope.results = [];
@@ -16,32 +23,22 @@ myapp.controller('mainCtrl', [
       angular.forEach(videos.data, function(value, index, array) {
 
         var like = $sce.trustAsHtml('<a href="' + ctx + '/video/addlikes?videoId=' + value.id + '"' + ' class="btn btn-default btn-xs" role="button">★</a>');
-        var hasLiked = false;
 
         var checkLiked = function() {
           return new Promise(function(resolve, reject) {
 
-            $http({method: 'GET', url: '/ac/video/get-one-json-by-login-user'}).then(function(loginUserLikeVideos) {
-
-              var arr = loginUserLikeVideos.data;
-              arr.filter(function(item, index) {
+        	// ここにログインしてなかったらresolve()を書きたい
+        	  
+          arr.filter(function(item, index) {
                 if (item.id == value.id) {
-                  hasLiked = true;
+                    like = $sce.trustAsHtml('<a href="' + ctx + '/video/delete-like-videos?videoId=' + value.id + '"' + ' class="btn btn-default btn-xs" role="button" style="color:yellow;">★</a>');
                 }
-              });
-              if (hasLiked) {
-                like = $sce.trustAsHtml('<a href="' + ctx + '/video/delete-like-videos?videoId=' + value.id + '"' + ' class="btn btn-default btn-xs" role="button" style="color:yellow;">★</a>');
-              }
-              
-              resolve();
-              
-            },function errorCallback(response) {
-            	console.log("ログインしていません");
-            	resolve();
-              });
-
-          });
-        };
+          resolve();}
+          ,function errorCallback(response) {
+        	console.log("ログインしていません");
+          })
+          resolve();
+          })};
 
         checkLiked().then(function() {
 
@@ -56,9 +53,9 @@ myapp.controller('mainCtrl', [
               return $sce.trustAsResourceUrl('https://www.youtube.com/embed/' + src);
             }
             $scope.results.push({
-              video: value, //動画情報
-              data: data.data.items[0], //YouTube情報
-              likeVideoButton: like //いいねボタン
+              video: value, // 動画情報
+              data: data.data.items[0], // YouTube情報
+              likeVideoButton: like // いいねボタン
             });
           });
 
