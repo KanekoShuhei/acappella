@@ -8,6 +8,7 @@
 <html ng-app="myapp">
 <head>
 <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+<link rel="SHORTCUT ICON" href="${pageContext.request.contextPath}/img/favicon.ico">
 <title>Acappella</title>
 <!-- <link rel="stylesheet" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css"> -->
 <link href="${pageContext.request.contextPath}/css/bootstrap.css" rel="stylesheet">
